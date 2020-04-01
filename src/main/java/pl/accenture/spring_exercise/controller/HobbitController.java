@@ -18,7 +18,7 @@ public class HobbitController {
     }
 
     @GetMapping("/hobbit/{id}")
-    public Hobbit stworzHobbita(@PathVariable Float id){
+    public Hobbit pokazHobbita(@PathVariable Float id){
         return hobbitRepository.findById(id).get();
     }
 }
