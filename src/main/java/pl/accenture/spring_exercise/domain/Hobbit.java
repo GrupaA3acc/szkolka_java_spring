@@ -4,6 +4,7 @@ package pl.accenture.spring_exercise.domain;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+import javax.management.ConstructorParameters;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -17,6 +18,15 @@ public class Hobbit {
     private String name;
     private String lastName;
     private boolean hasSecondBreakfast;
+
+    public Hobbit(Long id, String name, String lastName, boolean hasSecondBreakfast)
+    {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.hasSecondBreakfast = hasSecondBreakfast;
+    }
+
 
     public Long getId() {
         return id;
