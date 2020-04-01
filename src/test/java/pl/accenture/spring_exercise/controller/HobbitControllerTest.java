@@ -14,6 +14,7 @@ import pl.accenture.spring_exercise.domain.Hobbit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -39,4 +40,19 @@ class HobbitControllerTest {
 
         assertEquals(new Hobbit(1L,"Bilbo", "Baggins", true), hobbit);
     }
+
+    @Test
+    void shouldReturn4XX_hobbitPOST() throws Exception {
+
+        String endpoint = "/hobbit";
+
+        mockMvc.perform(post("/hobbit")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isMethodNotAllowed())
+                .andDo(print())
+                .andReturn();
+
+    }
+
+
 }
