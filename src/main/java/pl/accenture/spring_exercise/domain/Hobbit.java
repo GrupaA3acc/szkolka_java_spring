@@ -16,6 +16,7 @@ public class Hobbit {
     private Long id;
     private String name;
     private String lastName;
+    private boolean hasSecondBreakfast;
 
     public Long getId() {
         return id;
@@ -39,5 +40,13 @@ public class Hobbit {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public void setHasSecondBreakfast(boolean hasSecondBreakfast) {
+        this.hasSecondBreakfast = hasSecondBreakfast;
+    }
+
+    public boolean isHasSecondBreakfast() {
+        return hasSecondBreakfast;
     }
 }
