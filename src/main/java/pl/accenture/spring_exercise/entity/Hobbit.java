@@ -12,10 +12,10 @@ import javax.persistence.Id;
 @Data
 @RequiredArgsConstructor
 @NoArgsConstructor
-public class HobbitEntity {
+public class Hobbit {
 
     @Id
-    private float id;
+    private Float id;
     @NonNull
     private String name;
     @NonNull
