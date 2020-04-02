@@ -18,19 +18,19 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-
+@AutoConfigureMockMvc
 @SpringBootTest
 class HobbitControllerTest {
 
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
-
+    @Autowired
     MockMvc mockMvc;
 
     @Test
     void pokazHobbita() throws Exception {
         MvcResult response = mockMvc.perform
-                (get("/hobbit")
+                (get("/hobbit/1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andDo(print())
@@ -46,7 +46,7 @@ class HobbitControllerTest {
 
         String endpoint = "/hobbit";
 
-        mockMvc.perform(post("/hobbit")
+        mockMvc.perform(post("/hobbit/1")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isMethodNotAllowed())
                 .andDo(print())
